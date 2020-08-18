@@ -1,3 +1,12 @@
+:root {
+  --mainColor: #000;
+}
+/* postcss-cssnext 使用下一代css语法 */
 body {
   background-color: #000;
+  & div {
+    & div {
+      border: 1px solid var(--mainColor);
+    }
+  }
 }
