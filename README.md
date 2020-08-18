@@ -4,6 +4,9 @@
 ### 首先安装rollup  
 > npm install rollup (-g)  
   
+### 安装依赖  
+> npm install  
+  
 ### 运行  
 > npm run build  
   
