@@ -25,7 +25,7 @@ const virtualProcess = `const process = {
 
 
 export default {
-  input: 'src/components/render.js',
+  input: './src/main.js',
   output: {
     file: path.resolve(__dirname, './dist', './rollupBuilt.js'),
     format: 'iife',
@@ -55,7 +55,5 @@ export default {
       }
     }),
     terser()
-  ],
-  //忽略react, react-dom打包
-  external: ['react', 'react-dom']
+  ]
 }

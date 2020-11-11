@@ -3,8 +3,7 @@ module.exports = {
     'postcss-cssnext': {
       features: {
         customProperties: {
-          // 隐藏警告
-          warnings: false
+          warnings: false // 隐藏警告
         }
       }
     }
