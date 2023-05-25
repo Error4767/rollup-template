@@ -1,5 +1,3 @@
-import path from 'path';
-
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 
@@ -23,12 +21,11 @@ const virtualProcess = `const process = {
   }
 };`
 
-
 export default {
   input: './src/main.js',
   output: {
-    file: path.resolve(__dirname, './dist', './rollupBuilt.js'),
-    format: 'iife',
+    file: './dist/index.js',
+    format: 'es',
     banner: virtualProcess,// 添加虚拟的process对象
   },
   plugins: [
