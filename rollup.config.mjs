@@ -1,10 +1,10 @@
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 
 // 处理css module
 import postcss from 'rollup-plugin-postcss';
 
-import babel from 'rollup-plugin-babel';
+import babel from '@rollup/plugin-babel';
 
 // 处理图片
 import image from '@rollup/plugin-image';
@@ -12,7 +12,7 @@ import image from '@rollup/plugin-image';
 import alias from '@rollup/plugin-alias';
 
 // 压缩代码
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 
 // 虚拟的process对象，用于解决react报错
 const virtualProcess = `const process = {
@@ -42,15 +42,7 @@ export default {
     }),
     image(),
     resolve(),
-    commonjs({
-      // 参数用于解决一些导出报错
-      'namedExports': {
-        'node_modules/react-is/index.js': ['isFragment'],
-        'node_modules/react/index.js': ['Fragment', 'cloneElement', 'isValidElement', 'Children', 'createContext', 'Component', 'useRef', 'useImperativeHandle', 'forwardRef', 'useState', 'useEffect', 'useMemo'],
-        'node_modules/react-dom/index.js': ['render', 'unmountComponentAtNode', 'findDOMNode'],
-        'node_modules/gojs/release/go.js': ['Diagram', 'GraphLinksModel', 'Overview', 'Spot']
-      }
-    }),
+    commonjs(),
     terser()
   ]
 }
